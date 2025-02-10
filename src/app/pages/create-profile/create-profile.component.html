@@ -1,0 +1,205 @@
+<!-- <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow p-4">
+          <h3 class="text-center mb-3">Create Your Profile</h3>
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <div *ngIf="role === 'job_seeker'">
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" formControlName="name" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Skills</label>
+                <input type="text" class="form-control" formControlName="skills" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Preferred Location</label>
+                <input type="text" class="form-control" formControlName="preference.location" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Resume</label>
+                <input type="text" class="form-control" formControlName="resume" required />
+              </div>
+            </div>
+  
+            <div *ngIf="role === 'employer'">
+              <div class="mb-3">
+                <label class="form-label">Company Name</label>
+                <input type="text" class="form-control" formControlName="companyName" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Company Description</label>
+                <input type="text" class="form-control" formControlName="companyDescription" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Required Skills</label>
+                <input type="text" class="form-control" formControlName="preference.requiredSkils" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Salary Range</label>
+                <input type="number" class="form-control" formControlName="preference.salary.min" placeholder="Min Salary" required />
+                <input type="number" class="form-control mt-2" formControlName="preference.salary.max" placeholder="Max Salary" required />
+              </div>
+            </div>
+  
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->
+  <!-- <div class="container">
+
+   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="role === 'job_seeker'">
+      <label for="name">Name:</label>
+      <input id="name" type="text" formControlName="name" class="form-control" required />
+  
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" class="form-control" required />
+  
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password" class="form-control" required />
+  
+      <label>Skills:</label>
+      <div formArrayName="skills">
+        <div *ngFor="let skill of skills.controls; let i = index">
+          <input [formControlName]="i" type="text" class="form-control" />
+          <button type="button" class="btn btn-danger btn-sm" (click)="removeSkill(i)">Remove</button>
+        </div>
+      </div>
+      
+      <button type="button" class="btn btn-success btn-sm" (click)="addSkill()">Add Skill</button>
+  <br>
+      <label>Preferred Locations:</label>
+      <div formArrayName="locations">
+        <div *ngFor="let location of locations.controls; let i = index">
+          <input [formControlName]="i" type="text" class="form-control" />
+          <button type="button" class="btn btn-danger btn-sm" (click)="removeLocation(i)">Remove</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-success btn-sm" (click)="addLocation()">Add Location</button>
+  <br>
+      <label>Preferred Roles:</label>
+      <div formArrayName="roles">
+        <div *ngFor="let role of roles.controls; let i = index">
+          <input [formControlName]="i" type="text" class="form-control" />
+          <button type="button" class="btn btn-danger btn-sm" (click)="removeRole(i)">Remove</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-success btn-sm" (click)="addRole()">Add Role</button>
+  <br>
+      <label for="experience">Experience (in years):</label>
+      <input id="experience" type="number" formControlName="experience" class="form-control" required />
+  
+      <label for="resume">Upload Resume:</label>
+      <input id="resume" type="file" (change)="onFileSelected($event)" class="form-control" required />
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Create Profile</button>
+  </form>
+</div> -->
+
+
+
+
+<div class="container">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Job Seeker Form -->
+      <div *ngIf="role === 'job_seeker'">
+        <h2>Job Seeker Profile</h2>
+  
+        <label for="name">Name:</label>
+        <input id="name" type="text" formControlName="name" class="form-control" required />
+  
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" class="form-control" required />
+  
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" class="form-control" required />
+  
+        <label>Skills:</label>
+        <div formArrayName="skills">
+          <div *ngFor="let skill of skills.controls; let i = index">
+            <input [formControlName]="i" type="text" class="form-control" />
+            <button type="button" class="btn btn-danger btn-sm" (click)="removeSkill(i)">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-success btn-sm" (click)="addSkill()">Add Skill</button>
+  
+        <br />
+  
+        <label>Preferred Locations:</label>
+        <div formArrayName="locations">
+          <div *ngFor="let location of locations.controls; let i = index">
+            <input [formControlName]="i" type="text" class="form-control" />
+            <button type="button" class="btn btn-danger btn-sm" (click)="removeLocation(i)">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-success btn-sm" (click)="addLocation()">Add Location</button>
+  
+        <br />
+  
+        <label>Preferred Roles:</label>
+        <div formArrayName="roles">
+          <div *ngFor="let role of roles.controls; let i = index">
+            <input [formControlName]="i" type="text" class="form-control" />
+            <button type="button" class="btn btn-danger btn-sm" (click)="removeRole(i)">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-success btn-sm" (click)="addRole()">Add Role</button>
+  
+        <br />
+  
+        <label for="experience">Experience (in years):</label>
+        <input id="experience" type="number" formControlName="experience" class="form-control" required />
+  
+        <label for="resume">Upload Resume:</label>
+        <input id="resume" type="file" (change)="onFileSelected($event)" class="form-control" required />
+      </div>
+  
+      <!-- Employer Form -->
+      <div *ngIf="role === 'employer'">
+        <h2>Employer Profile</h2>
+  
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" class="form-control" required />
+  
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" class="form-control" required />
+  
+        <label for="companyName">Company Name:</label>
+        <input id="companyName" type="text" formControlName="companyName" class="form-control" required />
+  
+        <label for="companyDescription">Company Description:</label>
+        <textarea id="companyDescription" formControlName="companyDescription" class="form-control" required></textarea>
+  
+        <label>Required Skills:</label>
+        <div formArrayName="requiredSkills">
+          <div *ngFor="let skill of requiredSkills.controls; let i = index">
+            <input [formControlName]="i" type="text" class="form-control" />
+            <button type="button" class="btn btn-danger btn-sm" (click)="removeRequiredSkill(i)">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-success btn-sm" (click)="addRequiredSkill()">Add Required Skill</button>
+  
+        <br />
+  
+        <label>Salary Range:</label>
+        <div formGroupName="salary">
+          <label for="minSalary">Min Salary:</label>
+          <input id="minSalary" type="number" formControlName="min" class="form-control" required />
+  
+          <label for="maxSalary">Max Salary:</label>
+          <input id="maxSalary" type="number" formControlName="max" class="form-control" required />
+        </div>
+      </div>
+  
+      <br />
+      <button type="submit" class="btn btn-primary">Create Profile</button>
+    </form>
+  </div>
+  

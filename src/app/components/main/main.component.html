@@ -1,0 +1,19 @@
+<div class="main-section">
+    <div class="overlay"></div>
+    <div class="container text-center text-white">
+      <h1 class="fw-bold">Welcome to <span class="text-success">JobNest</span></h1>
+      <p class="lead">Your one-stop platform for job seekers and employers.</p>
+  
+      <!-- Quotes Carousel -->
+      <div id="quoteCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let quote of quotes; let i = index" class="carousel-item" [class.active]="i === 0">
+            <h3 class="quote-text">{{ quote }}</h3>
+          </div>
+        </div>
+      </div>
+  
+      <a routerLink="/signup" class="btn btn-success mt-4 px-4 py-2">Get Started</a>
+    </div>
+  </div>
+  
